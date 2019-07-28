@@ -1,0 +1,233 @@
+ <div class="col-md-12">-->
+<!--                    <div class="text-right" style="font-size: large">-->
+<!--                        --><?php // $top_ridge->table_count('Students', 'students', 'student_status'); ?>
+<!--                    </div>-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--                    -->
+<!--                    <div class="panel panel-info">-->
+<!--                            <div class="panel-heading">--><?php //echo $first_class;?>
+<!--                                <span style="align-content:center">--><?php //  $top_ridge->total_class_students($first_class_id);?><!--</span>-->
+<!---->
+<!--                                <div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a> <a href="#" data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>-->
+<!---->
+<!--                            </div>-->
+<!---->
+<!--                        <div class="panel-wrapper collapse in" aria-expanded="true">-->
+<!--                                <div class="panel-body">-->
+<!---->
+<!--
+
+
+
+<div class="table-responsive">-->
+<!--                                        <table class="table table-striped myTable">-->
+<!--                                            <thead>-->
+<!--                                            <tr>-->
+<!--                                                <th >No.</th>-->
+<!--                                                <th >ID</th>-->
+<!--                                                <th >NAME</th>-->
+<!--                                                <th >GENDER</th>-->
+<!--                                                <th >PARENT / GUARDIAN</th>-->
+<!--                                                <th >Actions</th>-->
+<!---->
+<!--                                            </tr>-->
+<!--                                            </thead>-->
+<!--                                            <tbody>-->
+<!---->
+<!--                                            --><?php
+//                                            $class_students = mysqli_query($top_ridge_db_connection,"SELECT students.student_id,students.id, CONCAT(students.first_name,' ', students.last_name) AS student_name, students.gender, CONCAT(parents.title,'.',parents.first_name,' ',parents.last_name) AS parent FROM students,parents WHERE students.class_id={$first_class_id} AND students.student_status = 1 AND students.parent_id = parents.parent_id ORDER BY students.first_name ASC, students.gender ASC");
+//                                            confirm_query($class_students);
+//                                            $counter= 1;
+//                                            if(mysqli_num_rows($class_students)){
+//
+//                                                while($result = mysqli_fetch_assoc($class_students))
+//                                                {
+//                                                    $student_name = strtoupper($result['student_name']);
+//                                                    $gender = $result['gender'];
+//                                                    $parent = $result['parent'];
+//                                                    $student_id = $result['id'];
+//                                                    $id = $result['student_id'];
+//                                                    ?>
+<!---->
+<!--                                               <tr>  <th >--><?php //echo $counter; ?><!--</th>-->
+<!--                                                    <th>--><?php //echo $id; ?><!--</th>-->
+<!--                                                    <th>--><?php //echo strtoupper($student_name); ?><!--</th>-->
+<!--                                                    <th>--><?php //echo strtoupper($gender); ?><!--</th>-->
+<!--                                                    <th>--><?php //echo strtoupper($parent); ?><!--</th>-->
+<!--                                                   <th ><a href="" class="print_info" title="View --><?php //echo $student_name; ?><!-- details " onclick="print_info('student_details.php?student_id=--><?php //echo $student_id; ?>//');">details</a>
+//                                                   ||<a href="" class="print_info" title="Click to edit <?php //echo $student_name; ?><!-- information " onclick="print_info('student_edit.php?student_id=--><?php //echo $student_id; ?>//');"><img src="images/user_edit.png" width="19" height="19" alt="img" />edit</a>
+//                                                   ||<a href="students.php?delete_student=<?php //echo $student_name; ?><!--&&student_name=--><?php //echo $student_name; ?><!--&&student_id=--><?php //echo $student_id; ?><!--" title="Click to delete --><?php //echo $student_name; ?><!--" class="print_info" onclick="return confirm('Are you sure you want to delete --><?php //echo $student_name; ?>//?');"><img src="images/trash.png" width="16" height="16" alt="img" />delete</a></th>
+//
+//
+//                                               </tr>
+//                                                    <?php //$counter++; }} ?>
+<!---->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!---->
+<!--                        --><?php
+//                        $remaining_classes = mysqli_query($top_ridge_db_connection,'SELECT class_id, class_name FROM classes  WHERE class_status = 1 ORDER BY class_id ASC LIMIT 100 OFFSET 1');
+//                        confirm_query($remaining_classes);
+//                        if(mysqli_num_rows($remaining_classes) > 0 ){
+//                        while($row= mysqli_fetch_assoc($remaining_classes))
+//                        {
+//                        $class_id =$row['class_id'];
+//                        $class_name =$row['class_name'];
+//
+//                        ?>
+<!--                    </div>  -->
+<!--                    -->
+<!--                    -->
+<!--                    -->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="panel panel-info block4">-->
+<!--                            <div class="panel-heading">-->
+<!--                                --><?php //echo $class_name;?>
+<!--                                --><?php //  $top_ridge->total_class_students($class_id);?>
+<!---->
+<!--                                <div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a> <a href="#" data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>-->
+<!--                            </div>-->
+<!--                            <div class="panel-wrapper collapse in" aria-expanded="true">-->
+<!--                                <div class="panel-body">-->
+<!--                                    <div class="table-responsive">-->
+<!--                                        <table class="table table-striped myTable">-->
+<!--                                            <thead>-->
+<!--                                            <tr>-->
+<!--                                                <th >No.</th>-->
+<!--                                                <th >ID</th>-->
+<!--                                                <th >NAME</th>-->
+<!--                                                <th >GENDER</th>-->
+<!--                                                <th >PARENT / GUARDIAN</th>-->
+<!--                                                <th >Actions</th>-->
+<!---->
+<!--                                            </tr>-->
+<!--                                            </thead>-->
+<!--                                            <tbody>-->
+<!---->
+<!---->
+<!--                                            --><?php
+//                                            $class_students = mysqli_query($top_ridge_db_connection,"SELECT students.student_id,students.id, CONCAT(students.first_name,' ', students.last_name) AS student_name, students.gender, CONCAT(parents.title,'.',parents.first_name,' ',parents.last_name) AS parent FROM students,parents WHERE students.class_id={$class_id} AND students.student_status = 1 AND students.parent_id = parents.parent_id ORDER BY students.first_name ASC, students.gender ASC");
+//                                            confirm_query($class_students);
+//                                            $count= 1;
+//                                            if(mysqli_num_rows($class_students)){
+//
+//                                                while($result = mysqli_fetch_assoc($class_students))
+//                                                {
+//                                                    $student_name = strtoupper($result['student_name']);
+//                                                    $gender = $result['gender'];
+//                                                    $parent = $result['parent'];
+//                                                    $student_id = $result['id'];
+//                                                    $id = $result['student_id'];
+//                                                    ?>
+<!---->
+<!---->
+<!---->
+<!--                                                    <tr>  <th >--><?php //echo $counter; ?><!--</th>-->
+<!--                                                        <th>--><?php //echo $id; ?><!--</th>-->
+<!--                                                        <th>--><?php //echo strtoupper($student_name); ?><!--</th>-->
+<!--                                                        <th>--><?php //echo strtoupper($gender); ?><!--</th>-->
+<!--                                                        <th>--><?php //echo strtoupper($parent); ?><!--</th>-->
+<!--                                                        <th ><a href="" class="print_info" title="View --><?php //echo $student_name; ?><!-- details " onclick="print_info('student_details.php?student_id=--><?php //echo $student_id; ?>//');">details</a>
+//                                                            ||<a href="" class="print_info" title="Click to edit <?php //echo $student_name; ?><!-- information " onclick="print_info('student_edit.php?student_id=--><?php //echo $student_id; ?>//');"><img src="images/user_edit.png" width="19" height="19" alt="img" />edit</a>
+//                                                            ||<a href="students.php?delete_student=<?php //echo $student_name; ?><!--&&student_name=--><?php //echo $student_name; ?><!--&&student_id=--><?php //echo $student_id; ?><!--" title="Click to delete --><?php //echo $student_name; ?><!--" class="print_info" onclick="return confirm('Are you sure you want to delete --><?php //echo $student_name; ?>//?');"><img src="images/trash.png" width="16" height="16" alt="img" />delete</a></th>
+//
+//
+//                                                    </tr>
+//                                                    <?php //$counter++; }} ?>
+<!---->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //}} ?>
+<!---->
+<!--</div>-->
+<!---->
+<!---->
+<!--</div></div>-->
+                                <section id="class_allocation">
+                                    <div class="white-box col-md-9 text-center">
+                                           ne">
+                                                        <td align="left" <form action="<?php echo $editFormAction; ?>" method="post" name="form2" id="form2">
+                                                                                                                        <table width="100%">
+                                                                                                                            <tr valign="baseli >Staff Name:</td>
+                                                        <td><span id="spryselect2">
+                    <select name="staff_id" class="form-control" required>
+                        <option value="" selected="selected">Select</option>
+                        <?php
+                        do {
+                            ?>
+                            <option value="<?php echo $row_rs_staff['id']?>"><?php echo $row_rs_staff['staff_name']?></option>
+                            <?php
+                        } while ($row_rs_staff = mysqli_fetch_assoc($rs_staff));
+                        $rows = mysqli_num_rows($rs_staff);
+                        if($rows > 0) {
+                            // mysql_data_seek($rs_staff, 0);
+                            $row_rs_staff = mysqli_fetch_assoc($rs_staff);
+                        }
+                        ?>
+                    </select>
+                  <br />
+        </span></td>
+                                                    </tr>
+                                                    <tr> </tr>
+
+
+
+                                                    <tr valign="baseline">
+                                                        <td  align="left">Select Subject:</td>
+                                                        <td colspan="5"><span id="spryselect3">
+                    <select name="subject_id" class="form-control" onchange="showUser(this.value);" required>
+                        <option value="">Select</option>
+                        <?php
+                        do {
+                            ?>
+                            <option value="<?php echo $row_rs_subjects['subject_id']?>"><?php echo $row_rs_subjects['subject_name']?></option>
+                            <?php
+                        } while ($row_rs_subjects = mysqli_fetch_assoc($rs_subjects));
+                        $rows = mysqli_num_rows($rs_subjects);
+                        if($rows > 0) {
+                            // mysql_data_seek($rs_subjects, 0);
+                            $row_rs_subjects = mysqli_fetch_assoc($rs_subjects);
+                        }
+                        ?>
+                    </select>
+                  <br />
+                 </span></td>
+                                                    </tr>
+
+
+
+                                                    <tr> </tr>
+
+                                                    <tr valign="baseline"  id="tint">
+
+
+                                                    </tr>
+
+
+
+
+
+
+
+
+                                                </table>
+
+                                                <input type="submit" class="btn btn-success btn-lg form-group" value="Save Details"  style="width: 50%; margin-top: 10px"/>
+
+                                                <input type="hidden" name="MM_insert" value="form2" />
+                                            </form>
+
+                                    </div>
